@@ -6,8 +6,8 @@ class SenderRequest {
   private $event;
 
   public function __construct() {
-    $event = file_get_contents(filename: "php://input");
-    $event = json_decode($event, assoc: true, depth:512, options: JSON_BIGINT_AS_STRING);
+    $event = file_get_contents("php://input");
+    $event = json_decode($event, true, 512, JSON_BIGINT_AS_STRING);
     $this->event = $event['entry'][0]['messaging'][0];    
   }
 
@@ -24,7 +24,8 @@ class SenderRequest {
       return null;
     }
 
-    if (is_array($this->event['postback']) and !empty(($this->event['postback']['payload'])) {
+    if (is_array($this->event['postback']) and 
+        !empty(($this->event['postback']['payload']))) {
       return $this->event['postback']['payload'];
     }
 
