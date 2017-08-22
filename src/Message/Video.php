@@ -2,7 +2,7 @@
 
 namespace CodeBot\Message;
 
-class Text implements Message {
+class Video implements Message {
 
   private $recipientId;
 
@@ -16,8 +16,12 @@ class Text implements Message {
         'id'=> $this->recipientId
       ],
       'message' => [
-        'text' => 'Oi',
-        'metadata' => 'DEVELOPER_DEFINED_METADATA'
+        'attachment' => [
+          'type' => 'video',
+          'payload' => [
+            'url' => $messageText
+          ]
+        ]
       ]
     ];
   }
