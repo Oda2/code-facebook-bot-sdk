@@ -1,0 +1,19 @@
+{
+    "name": "oda2/facebook-bot-sdk",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Renato Oda",
+            "email": "renato.oda2@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodeBot\\": "src"
+        }
+    }
+}
