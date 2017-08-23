@@ -35,7 +35,7 @@ class ListTemplateTest extends TestCase {
           'type' => 'template',
           'payload' => [
             'template_type' => 'list',
-            'buttons' => [
+            'elements' => [
               [
                 'title' => 'Produto 1',                
                 'image_url' => 'http://cdn.matera.com/br/wp-content/uploads/2017/02/angular2.png',
