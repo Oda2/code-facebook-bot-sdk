@@ -28,7 +28,7 @@ class GenericTemplate implements TemplateInterface {
           'type' => 'template',
           'payload' => [
             'template_type' => 'generic',
-            'buttons' => $this->products
+            'elements' => $this->products
             ]
           ]
         ]
