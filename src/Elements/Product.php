@@ -13,7 +13,7 @@ class Product implements ElementInterface {
   private $default_action;
   private $buttons;
 
-  public function __construct(string $title, string $image_url = null, $subtitle = null, Button $default_action = null) {
+  public function __construct(string $title, string $image_url = null, string $subtitle = null, Button $default_action = null) {
     $this->title = $title;
     $this->image_url = $image_url;
     $this->subtitle = $subtitle;
