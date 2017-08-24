@@ -44,10 +44,10 @@ class MenuManager {
       if ($action['parent_id'] === $parent_id) {
   
         $result[] = $this->mountAction($action);
-      }
-  
-      return $result; 
+      }      
     }
+
+    return $result; 
   }
 
   private function mountAction($action) {
