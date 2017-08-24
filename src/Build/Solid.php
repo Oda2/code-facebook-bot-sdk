@@ -17,10 +17,10 @@ class Solid {
       self::$instance = new Bot();
     }
 
-    return self::$insance;
+    return self::$instance;
   }
 
   public static function __callStatic($name, $arguments) {
-    call_user_func_array([$instance, $name], $arguments);
+    call_user_func_array([self::$instance, $name], $arguments);
   }
 }

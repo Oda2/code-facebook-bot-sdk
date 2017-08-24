@@ -59,7 +59,7 @@ class Bot {
   public function addMenu(string $locale, string $composer_input_disabled, array $call_to_actions) {
     $menu = new MenuManager($locale, $composer_input_disabled);
 
-    foreach($call_to_actions as $actions) {
+    foreach($call_to_actions as $action) {
       $menu->callToAction($action['id'], $action['type'], $action['title'], $action['parent_id'], $action['value']);
     }
 
