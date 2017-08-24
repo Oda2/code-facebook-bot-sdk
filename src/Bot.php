@@ -28,7 +28,7 @@ class Bot {
     return $this->callSendApi($message);
   }
 
-  public function template(string $type, string $message, array $elements, array $config) {
+  public function template(string $type, string $message, array $elements, array $config =[]) {
     $type = $this->load($type .'Template', 'CodeBot\TemplatesMessage');
     
     foreach($config as $method => $params) {
