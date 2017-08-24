@@ -2,6 +2,10 @@
 
 namespace CodeBot;
 
+use CodeBot\CallSendApi;
+use CodeBot\GetStartedButton;
+use CodeBot\MenuManager;
+
 class Bot {
 
   private $senderId;
@@ -38,6 +42,38 @@ class Bot {
     $message = $type->message($message);
     
     return $this->callSendApi($message);
+  }
+
+  public function addGetStartedButton(string $postback) {
+    $data = (new GetStartedButton())->add($postback);
+
+    return $this->callSendApi($data, CallSendApi::URL_PROFILE);
+  }
+
+  public function removeGetStartedButton() {
+    $data = (new GetStartedButton())->remove();
+
+    return $this->callSendApi($data, CallSendApi::URL_PROFILE, 'DELETE');
+  }
+
+  public function addMenu(string $locale, string $composer_input_disabled, array $call_to_actions) {
+    $menu = new MenuManager($locale, $composer_input_disabled);
+
+    foreach($call_to_actions as $actions) {
+      $menu->callToAction($action['id'], $action['type'], $action['title'], $action['parent_id'], $action['value']);
+    }
+
+    return $this->callSendApi($menu->toArray(), CallSendApi::URL_PROFILE);
+  }
+
+  public function removeMenu() {
+    $data = [
+      'fields' => [
+        'persistent_menu'
+      ]
+    ];
+
+    return $this->callSendApi($data, CallSendApi::URL_PROFILE, 'DELETE');
   }
 
   private function load($class, $namespace) {
